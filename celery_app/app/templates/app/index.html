@@ -6,7 +6,13 @@
 </head>
 <body>
 
-    <h1>Hello there!</h1>
+    <h4>Для отправки письма, заполните форму:</h4>
+
+    <form action="{% url 'index' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить</button>
+    </form>
 
 </body>
 </html>
