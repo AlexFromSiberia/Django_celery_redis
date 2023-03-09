@@ -16,7 +16,7 @@ class ContactView(CreateView):
     def form_valid(self, form):
         form.save()
         # передаём в функцию КОНКРЕТНОЕ ПОЛЕ, а не всю форму
-        send(form.instance.email)
-        # send_spam_email.delay(form.instance.email)
+        # send(form.instance.email)
+        send_spam_email.delay(form.instance.email)
         return super().form_valid(form)
 
